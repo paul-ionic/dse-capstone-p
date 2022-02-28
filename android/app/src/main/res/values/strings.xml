@@ -4,9 +4,9 @@
   <string name="title_activity_main">dse_capstone_p</string>
   <string name="package_name">io.ionic.starter</string>
   <string name="custom_url_scheme">io.ionic.starter</string>
-  <string name="ionic_app_id">ionic link</string>
-  <string name="ionic_channel_name">Production</string>
-  <string name="ionic_update_method">background</string>
+  <string name="ionic_app_id">dd59c22d</string>
+  <string name="ionic_channel_name">Prod</string>
+  <string name="ionic_update_method">auto</string>
   <string name="ionic_max_versions">2</string>
   <string name="ionic_min_background_duration">30</string>
   <string name="ionic_update_api">https://api.ionicjs.com</string>
