@@ -2,8 +2,8 @@
 <resources>
   <string name="app_name">dse_capstone_p</string>
   <string name="title_activity_main">dse_capstone_p</string>
-  <string name="package_name">io.ionic.starter</string>
-  <string name="custom_url_scheme">io.ionic.starter</string>
+  <string name="package_name">me.lacaille.dsecapstonepaul</string>
+  <string name="custom_url_scheme">me.lacaille.dsecapstonepaul</string>
   <string name="ionic_app_id">dd59c22d</string>
   <string name="ionic_channel_name">Prod</string>
   <string name="ionic_update_method">auto</string>

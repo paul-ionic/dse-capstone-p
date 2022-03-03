@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package me.lacaille.dsecapstonepaul;
 
 import com.getcapacitor.BridgeActivity;
 
