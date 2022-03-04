@@ -13,7 +13,7 @@ import { Deploy } from 'cordova-plugin-ionic/dist/ngx';
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
-  providers: [Deploy, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, Deploy],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
 import { Deploy } from 'cordova-plugin-ionic/dist/ngx';
 
 @Component({
@@ -11,35 +10,50 @@ import { Deploy } from 'cordova-plugin-ionic/dist/ngx';
 export class FolderPage implements OnInit {
   public folder: string;
   deploy: any;
-  liveUpdateId: any;
+  liveUpdateId: string = 'TEST';
   updateAvailable: any;
+  versionCurrent: string = 'TBD';
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private _deploy: Deploy, private activatedRoute: ActivatedRoute) { 
+    const info = this._deploy.getConfiguration();
+  }
 
   ngOnInit() {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id');
   }
 
-  private async loadDeployInfo() 
-  {
-      const info = await this.deploy.getCurrentVersion();
-  
+  async getCurrVersion() {
+    console.log('Calling getCurrVersion()');
+    this.versionCurrent = 'Getting current version';
+    let info2 = (await this._deploy.getCurrentVersion());
+    if (info2) {
+      console.log(info2.versionId);
+      this.versionCurrent = info2.versionId;
+    } else {
+      console.log('No version found');
+      this.versionCurrent = 'No version found';
+    }
+    console.log('Executed getCurrVersion()');
+  }
+
+  async loadInfo() {
+    console.log('Calling loadInfo()');
+    this.liveUpdateId = 'Getting current version';
+      let info = (await this._deploy.getCurrentVersion());
+
       if (info) {
+        console.log(info.buildId);
         this.liveUpdateId = info.buildId;
-      }    
-  
-      const updateCheck = await this.deploy.checkForUpdate();
-  
-      console.log(updateCheck);
-  
-      if (updateCheck.available) {
-        this.updateAvailable = updateCheck.build;
-      }    
+      } else {
+        console.log('No version found');
+        this.versionCurrent = 'No version found';
+      }
+      console.log('Executed loadInfo()');
     };
 
   testClicked(){
     console.log("testClicked");
-    alert(`test ${this.loadDeployInfo()}`)
+    alert(`test ${this.loadInfo()}`)
   };
 
 }
